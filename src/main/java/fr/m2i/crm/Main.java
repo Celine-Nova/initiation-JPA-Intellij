@@ -10,7 +10,6 @@ public class Main {
     public static void main(String[] args) {
 
        /* EntityManagerFactory emf = Persistence.createEntityManagerFactory("crm2");
-
         EntityManager entityManager = emf.createEntityManager();*/
 
         SessionHelper.getEntityManager();
