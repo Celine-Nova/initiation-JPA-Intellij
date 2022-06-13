@@ -3,15 +3,16 @@
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
              version="2.2">
-    <persistence-unit name="crm">
+    <persistence-unit name="crm2">
+        <!--Indique sur quelle classe on va persister -->
         <class>fr.m2i.crm.model.Customer</class>
         <class>fr.m2i.crm.model.Order</class>
         <properties>
             <!-- database connection -->
             <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver" />
-            <property name="hibernate.connection.url" value="jdbc:mysql://localhost/crm" />
-            <property name="hibernate.connection.user" value="crm" />
-            <property name="hibernate.connection.password" value="crm" />
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost/crm2" />
+            <property name="hibernate.connection.user" value="crm2" />
+            <property name="hibernate.connection.password" value="crm2" />
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL57Dialect" />
             <property name="hibernate.show_sql" value="true" />
         </properties>
