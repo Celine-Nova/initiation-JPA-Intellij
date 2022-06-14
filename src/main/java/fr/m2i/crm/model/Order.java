@@ -1,5 +1,7 @@
 package fr.m2i.crm.model;
 
+import fr.m2i.crm.state.CustomerState;
+
 import javax.persistence.*;
 
 @Entity
@@ -27,6 +29,16 @@ public class Order {
 
     @Column(name="unit_price", scale = 2)
     private Double unitPrice;
+
+    @Column(name="state", nullable = false, columnDefinition = "INT(1) DEFAULT '0'") // => Sql type Integer valeur par default 0 == INACTIVE
+    // ou @ColumnDefault("0")
+    @Enumerated(EnumType.ORDINAL) // => Renvoie Integer
+    private CustomerState state;
+
+    
+    @JoinColumn(name = "customer_id")
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    private Customer customer;
 
     public int getId() {
         return id;
@@ -82,6 +94,14 @@ public class Order {
 
     public void setUnitPrice(Double unitPrice) {
         this.unitPrice = unitPrice;
+    }
+
+    public CustomerState getState() {
+        return state;
+    }
+
+    public void setState(CustomerState state) {
+        this.state = state;
     }
 
     @Override

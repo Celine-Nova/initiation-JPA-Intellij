@@ -3,6 +3,7 @@ package fr.m2i.crm.model;
 import fr.m2i.crm.state.CustomerState;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="customer")
@@ -45,6 +46,8 @@ public class Customer {
     @Enumerated(EnumType.ORDINAL) // => Renvoie Integer
     private CustomerState state;
 
+    @OneToMany(mappedBy = "customer")
+    private List<Order> orders;
 
     public Long getId() {
         return id;

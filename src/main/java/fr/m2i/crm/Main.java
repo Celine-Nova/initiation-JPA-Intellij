@@ -14,8 +14,8 @@ public class Main {
         // On ouvre la Session entityManager
         EntityManager entityManager =  SessionHelper.getEntityManager();
         /* TODO*/
-        CustomerDAO customerDAO = new CustomerDAO();
-        customerDAO.create();
+      //  CustomerDAO customerDAO = new CustomerDAO();
+      //  customerDAO.create();
         //Customer customerData = new Customer();
         //customerData.setZipCode("75001");
         //customerDAO.update(1L, customerData);
@@ -23,9 +23,9 @@ public class Main {
         if (customer != null) {
             System.out.println("les données : " + customer.getAddress());
         }*/
-        List<Customer> customers =  customerDAO.findAll();
-        System.out.println(customers);
+       // List<Customer> customers =  customerDAO.findAll();
+      //  System.out.println(customers);
         //On ferme la session
-        entityManager.close();
+        //entityManager.close();
     }
 }
