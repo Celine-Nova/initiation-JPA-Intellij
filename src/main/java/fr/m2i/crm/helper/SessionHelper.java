@@ -13,8 +13,7 @@ public class SessionHelper {
             EntityManagerFactory emf = Persistence.createEntityManagerFactory("crm2");
            // Je créer mon Entity Manager
             entityManager = emf.createEntityManager();
-            //On ferme la factory
-           // emf.close();
+
         }
         System.out.println("connectée");
         return entityManager;

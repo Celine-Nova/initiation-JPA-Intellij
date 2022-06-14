@@ -1,5 +1,7 @@
 package fr.m2i.crm.model;
 
+import fr.m2i.crm.state.CustomerState;
+
 import javax.persistence.*;
 
 @Entity
@@ -36,6 +38,13 @@ public class Customer {
 
     @Column(name = "zip_code", length = 12)
     private String zipCode;
+
+    // attribut state de l'enum CustomerState
+    @Column(name="state", nullable = false, columnDefinition = "INT(1) DEFAULT '0'") // => Sql type Integer valeur par default 0 == INACTIVE
+    // ou @ColumnDefault("0")
+    @Enumerated(EnumType.ORDINAL) // => Renvoie Integer
+    private CustomerState state;
+
 
     public Long getId() {
         return id;

@@ -8,10 +8,11 @@ import javax.persistence.Persistence;
 
 public class Main {
     public static void main(String[] args) {
+        // On ouvre la Session entityManager
+        EntityManager entityManager =  SessionHelper.getEntityManager();
+        /* TODO*/
 
-       /* EntityManagerFactory emf = Persistence.createEntityManagerFactory("crm2");
-        EntityManager entityManager = emf.createEntityManager();*/
-
-        SessionHelper.getEntityManager();
+        //On ferme la session
+        entityManager.close();
     }
 }
