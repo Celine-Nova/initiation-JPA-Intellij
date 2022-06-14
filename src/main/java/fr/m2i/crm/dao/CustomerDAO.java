@@ -6,8 +6,20 @@ import fr.m2i.crm.state.CustomerState;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
+import java.util.List;
 
 public class CustomerDAO {
+    public List<Customer> findAll(){
+        EntityManager entityManager = SessionHelper.getEntityManager();
+        // Je créée la requêt JPQL
+        Query query = entityManager.createQuery("SELECT c FROM Customer c");
+        List<Customer> results = query.getResultList();
+        if (results == null){
+            System.out.println("Le résultat est vide");
+        }
+        return results;
+    }
     public Customer findById(Long id){
         EntityManager entityManager = SessionHelper.getEntityManager();
         Customer customerFindId = entityManager.find(Customer.class, id);
@@ -16,6 +28,22 @@ public class CustomerDAO {
         }
         return customerFindId;
     }
+    //VERSION JPSQL
+    /*    public Customer findById(Long id) {
+        EntityManager entityManager = SessionHelper.getEntityManager();
+//        Customer customerFounded = entityManager.find(Customer.class, id);
+
+        Query queryToFindCustomerById = entityManager.createQuery("select c from Customer c where c.id = ?1");
+        queryToFindCustomerById.setParameter(1, id);
+
+        Customer customerFounded = (Customer) queryToFindCustomerById.getSingleResult();
+
+        if (customerFounded == null) {
+            System.out.println("Attention le customer avec l'id: " + id + " n'existe pas !");
+        }
+
+        return customerFounded;
+    }*/
     public void create() {
         //J'ouvre la session entity manager
         EntityManager entityManager = SessionHelper.getEntityManager();

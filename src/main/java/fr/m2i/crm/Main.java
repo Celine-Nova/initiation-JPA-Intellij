@@ -7,6 +7,7 @@ import fr.m2i.crm.model.Customer;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -18,10 +19,12 @@ public class Main {
         //Customer customerData = new Customer();
         //customerData.setZipCode("75001");
         //customerDAO.update(1L, customerData);
-        Customer customer = customerDAO.findById(1L);
+       /* Customer customer = customerDAO.findById(1L);
         if (customer != null) {
             System.out.println("les données : " + customer.getAddress());
-        }
+        }*/
+        List<Customer> customers =  customerDAO.findAll();
+        System.out.println(customers);
         //On ferme la session
         entityManager.close();
     }

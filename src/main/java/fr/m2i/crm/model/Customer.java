@@ -157,4 +157,21 @@ public class Customer {
         // l'avoir pour tous les champs qu'on veut modifier
 
     }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", address='" + address + '\'' +
+                ", city='" + city + '\'' +
+                ", companyName='" + companyName + '\'' +
+                ", country='" + country + '\'' +
+                ", email='" + email + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", phone='" + phone + '\'' +
+                ", zipCode='" + zipCode + '\'' +
+                ", state=" + state +
+                '}';
+    }
 }
