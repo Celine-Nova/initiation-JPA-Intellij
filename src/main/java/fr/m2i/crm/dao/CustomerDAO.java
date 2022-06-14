@@ -39,6 +39,31 @@ public class CustomerDAO {
             System.out.println("Une erreur est survenu lors de la création");
         }
     }
+    // Différente manière pour l'update :
+// public void update(Long id, String address, String city, String companyName, ........) {
+// => utiliser l'id en paramètre pour récupérer le customer que l'on souhaite modifier
+// puis set les données :
+// ...
+// customerToUpdate.setAddress(address);
+// customerToUpdate.setCity(address);
+// customerToUpdate.setCompanyName(address);
+// ...
+
+// Différente manière pour l'update :
+// public void update(Long id, Customer customerData) {
+// => utiliser l'id en paramètre pour récupérer le customer que l'on souhaite modifier
+// puis set les données :
+// ...
+// customerToUpdate.setNotNullData(customerData); -> on set les données uniquement si elle ne sont pas null
+// ...
+
+    // Différente manière pour l'update :
+// public void update(Customer customerData) {
+// => utiliser customer.getId(); pour récupérer le customer que l'on souhaite modifier
+// puis set les données :
+// ...
+// customerToUpdate.setNotNullData(customerData); -> on set les données uniquement si elle ne sont pas null
+// ...
     public void update(Long id, Customer customerData) {
         EntityManager entityManager = SessionHelper.getEntityManager();
         Customer customerToUpdate = entityManager.find(Customer.class, id);
