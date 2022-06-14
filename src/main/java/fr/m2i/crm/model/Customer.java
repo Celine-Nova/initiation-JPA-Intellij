@@ -125,4 +125,36 @@ public class Customer {
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
     }
+
+    public CustomerState getState() {
+        return state;
+    }
+
+    public void setState(CustomerState state) {
+        this.state = state;
+    }
+    public void setCustomerState(CustomerState state) {
+        this.state = state;
+    }
+
+    public void setNotNullData(Customer newCustomer) {
+        if (newCustomer.getAddress() != null) {
+            this.setAddress(newCustomer.getAddress());
+        }
+
+        if (newCustomer.getCompanyName() != null) {
+            this.setCompanyName(newCustomer.getCompanyName());
+        }
+
+        if (newCustomer.getCity() != null) {
+            this.setCity(newCustomer.getCity());
+        }
+
+        if (newCustomer.getZipCode() != null) {
+            this.setZipCode(newCustomer.getZipCode());
+        }
+
+        // l'avoir pour tous les champs qu'on veut modifier
+
+    }
 }
